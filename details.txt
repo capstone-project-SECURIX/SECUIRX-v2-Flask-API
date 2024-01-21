@@ -4,6 +4,21 @@
 
 
 
+kal kya present kare?
+
+- llama-2, Mistral
+
+- matrix
+- code correction
+- code vul - using llm
+
+modes:
+- regex
+- semgrep
+
+
+
+
 
 rules:
   - id: infoExposureComments

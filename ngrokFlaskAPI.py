@@ -44,6 +44,7 @@ def upload_file():
     
     if file:
         filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        # filename = f"/content/SECUIRX-v2-Flask-API/static/uploads_files/{file.filename}"
         file.save(filename)
         return "File uploaded successfully"
     
@@ -55,6 +56,8 @@ def clear_upload_folder():
     # Delete each file in the upload folder
     for file in files:
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], file)
+        # file_path = f"/content/SECUIRX-v2-Flask-API/static/uploads_files/{file}"
+
         os.remove(file_path)
         print("deleted files : ", file_path)
 
@@ -74,6 +77,8 @@ def upload_file_via_post():
 
     # Save the file content to a file
     filename = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
+    # filename = f"/content/SECUIRX-v2-Flask-API/static/uploads_files/{file_name}"
+
     file_content.save(filename)
 
     return "File uploaded successfully via POST"
@@ -121,9 +126,9 @@ def clear_previous_clones():
     # except subprocess.CalledProcessError as e:
     #     print(f"Error running batch file: {e}")
 
-    # !rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*
+    !rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*
     # subprocess.run(['!rm', '-r', '/content/SECUIRX-v2-Flask-API/static/github_folders/*'])
-    os.system('!rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*')
+    # os.system('!rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*')
     print("prev git repo deleted successfully !!!")
 
 
@@ -137,7 +142,8 @@ def scanrepo():
     outputfolder = "--output=output.json"
     
     # static\setup\semgrep_mode\output.json
-    json_file_path = os.path.join(app.config['SETUP_FOLDER'], 'semgrep_mode\output.json')
+    json_file_path = os.path.join(app.config['SETUP_FOLDER'], 'semgrep_mode', 'output.json')
+    print("semgrep - json_file_path : ", json_file_path)
 
     # subprocess.run(['!semgrep', '--config=auto', inputfolder, outputfolder, '--json', '--verbose'])
 
