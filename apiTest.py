@@ -1,11 +1,14 @@
 import os
 import requests
 
+domain_link = "https://20b6-35-229-83-63.ngrok-free.app/"
+
+
 def uploadfile():
     print("uploadfile() function running ...")
 
     # url = "http://localhost:5000/upload_via_post"
-    url = "https://6bf6-34-42-153-222.ngrok-free.app/upload_via_post"
+    url = f"{domain_link}upload_via_post"
 
     # file_path = "api_sample_uploads\codeGoat - Copy (2).c++"
     # file_path = "api_sample_uploads\codeGoat - Copy.java"
@@ -27,7 +30,7 @@ def uploadfile():
 def upload_GitLink():
     print("upload_GitLink() function running ...")
     # url = "http://localhost:5000/download_repo"
-    url = "https://671f-34-138-29-184.ngrok-free.app/download_repo"
+    url = f"{domain_link}download_repo"
 
     # repo_link = "https://github.com/AtharvaPawar456/Raspberry-Pi-Workshop.git"
     repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"
@@ -39,5 +42,29 @@ def upload_GitLink():
     # Print the response
     print(response.text)
 
+# def scan_file(mode='regex'):
+def scan_file():
+    print("upload_GitLink() function running ...")
+    # url = "http://localhost:5000/download_repo"
+    # url = f"{domain_link}scanrepo"
+    url = f"{domain_link}scanfiles"
+
+
+    # Make a GET request to download the repository
+    # params = {'mode': mode}
+    # response = requests.get(url, params=params)
+    response = requests.get(url)
+
+    # Print the first 500 characters of the response
+    print(response.text[:500])    
+    
+    # You can also save the response to a file for further analysis
+    with open('research/response_content.txt', 'w') as file:
+        file.write(response.text)
+
+
+
+
 # uploadfile()
-upload_GitLink()
+# upload_GitLink()
+scan_file()

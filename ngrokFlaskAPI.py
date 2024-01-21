@@ -25,9 +25,234 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(app.config['GITHUB_FOLDER'], exist_ok=True)
 os.makedirs(app.config['SETUP_FOLDER'],  exist_ok=True)
 
+
+# main code ------------------------------------------
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/file_scan', methods=['POST'])
+def file_scan():
+    # Clear existing files in the upload folder
+    clear_upload_folder()
+
+    # Get the file content and other information from the POST request
+    scan_mode = request.files.get('mode')
+
+    file_content = request.files.get('file_content')
+    file_name = request.form.get('file_name')
+
+    if not file_content or not file_name:
+        return "No file content or file name provided"
+
+    # Save the file content to a file
+    filename = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
+    file_content.save(filename)
+
+    if scan_mode == 'regex':
+        
+        # List all files in the testcode folder
+        files = os.listdir(app.config['UPLOAD_FOLDER'])
+        testcode_file = files[0]
+        # print("testcode_file :", testcode_file)
+        file_type = ''
+
+        # file_type_list = ['.py', '.java', '.c++']
+        if testcode_file.endswith('.py'):  # Process only Python files
+            file_type += 'python'
+            RuleFilePath = os.path.join(app.config['SETUP_FOLDER'], 'regex_mode/ruleSets/py_config.yaml')
+        
+        elif testcode_file.endswith('.java'): # Process only Java files  
+            file_type += 'java'
+            RuleFilePath = os.path.join(app.config['SETUP_FOLDER'], 'regex_mode/ruleSets/java_config.yaml')
+
+        elif testcode_file.endswith('.c++') or testcode_file.endswith('.cpp'):  # Process only c++ or cpp files
+            file_type += 'c++'
+            RuleFilePath = os.path.join(app.config['SETUP_FOLDER'], 'regex_mode/ruleSets/c_plus_plus_config.yaml')
+        print(f"input file_type : ", file_type, "RuleFilePath : ", RuleFilePath)
+
+        # Read rule set patterns from config.yaml
+        with open(RuleFilePath, "r") as config_file:
+            try:
+                config = yaml.safe_load(config_file)
+                rule_set = config["rules"]
+                # rule_set_name = config["name"] # rule_set_lang = config["languages"]
+            except subprocess.CalledProcessError as e:
+                print(f"Error running batch file: {e}")
+
+            
+        numRules = len(rule_set)
+        print("numRules :", numRules)
+        logs_data = []
+
+        # Create or open the logs.json file for writing
+        testcode_file_path = os.path.join(app.config['UPLOAD_FOLDER'], testcode_file)
+        with open(testcode_file_path, "r") as code_file:
+            code_lines = code_file.readlines()
+
+        # Iterate through each line and apply rules
+        for line_number, line in enumerate(code_lines, start=1):
+            for rule in rule_set:
+                try:
+                    pattern = rule["pattern"]
+                    if re.search(pattern, line):
+                        message = rule["message"]
+                        severity = rule["severity"]
+                        impact = rule["metadata"]["impact"]
+                        cwe = rule["metadata"]["cwe"]
+                        owasp = rule["metadata"]["owasp"]
+
+                        if file_type == 'c++' or file_type == 'java':
+                            logs_data.append({
+                                "id": rule["id"],
+                                "line_number": line_number,
+                                "filename": testcode_file,
+                                "code": line.strip(),
+                                "impact": impact,
+                                "severity": severity,
+                                "message": message,
+                                "cwe": cwe,
+                                "owasp": owasp,
+
+                                # for java & cpp only
+                                "approxcorrectCode" : rule["correctcode"]
+                            })
+                        else:
+                            logs_data.append({
+                                "id": rule["id"],
+                                "line_number": line_number,
+                                "filename": testcode_file,
+                                "code": line.strip(),
+                                "impact": impact,
+                                "severity": severity,
+                                "message": message,
+                                "cwe": cwe,
+                                "owasp": owasp,
+                            })
+
+                        # No need to continue checking other rules for this line
+                        break
+
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+
+        # Save data to logs.json
+        LogsFilePath = os.path.join(app.config['SETUP_FOLDER'], 'regex_mode/logs.json')
+                    
+        with open(LogsFilePath, "w") as logs_json_file:
+            json.dump(logs_data, logs_json_file, indent=2)
+
+        print("Results saved in logs.json") if logs_data else print("No patterns matched.")
+        retData = f"Scanned files successfully !!! \n\n {logs_data}"        
+        return retData
+
+    else:
+        inputfolder = "static/uploads_files"
+        json_file_path = "static/setup/semgrep_mode/output.json"
+        print("semgrep - json_file_path : ", json_file_path)
+
+        # !semgrep --config=auto static/github_folders --output=static/setup/semgrep_mode/output.json --json --verbose
+        os.system(f"!semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
+
+        # Read the content from the JSON file
+        with open(json_file_path, 'r') as json_file:
+            json_data = json.load(json_file)
+        jData = json.dumps(json_data, indent=2)
+        
+        # print("scanned repo with semgrep successfully !!!")
+        return jData
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@app.route('/repo_scan', methods=['POST'])
+def repo_scan():
+    # Clear existing files in the upload folder
+    # clear_upload_folder()
+
+    # Get the file content and other information from the POST request
+    scan_mode = request.files.get('mode')
+
+    repo_link = request.args.get('repo_link')
+
+    if not repo_link:
+        return "Repo link not provided"
+    
+    clone_path = os.path.join('static', 'github_folders', repo_link[19:].replace('/', '_'))
+    
+    os.system('rm -r static/github_folders/*') # Delete all previous clones
+
+    # Use subprocess to run the git clone command
+    try:
+        subprocess.run(['git', 'clone', repo_link, clone_path])
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error Cloneing Git Repo: {e}")
+
+    if scan_mode == 'regex':
+        return "service unavailable"
+
+    else:
+        inputfolder = "static/github_folders"
+        json_file_path = "static/setup/semgrep_mode/output.json"
+        print("semgrep - json_file_path : ", json_file_path)
+
+        # !semgrep --config=auto static/github_folders --output=static/setup/semgrep_mode/output.json --json --verbose
+        os.system(f"!semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
+
+        # Read the content from the JSON file
+        with open(json_file_path, 'r') as json_file:
+            json_data = json.load(json_file)
+        jData = json.dumps(json_data, indent=2)
+        
+        # print("scanned repo with semgrep successfully !!!")
+        return jData
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# unit testing ------------------------------------------
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -116,19 +341,11 @@ def clone_github_repo(repo_link):
         print(f"Error Cloneing Git Repo: {e}")
 
 def clear_previous_clones():
-    # # Path to the batch file
-    # batch_file_path = os.path.join('static', 'delete_directory.bat')
 
-    # try:
-    #     # Run the batch file
-    #     subprocess.run([batch_file_path], shell=True, check=True)
-    #     print("Previous clones deleted successfully.")
-    # except subprocess.CalledProcessError as e:
-    #     print(f"Error running batch file: {e}")
-
-    !rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*
+    # !rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*
     # subprocess.run(['!rm', '-r', '/content/SECUIRX-v2-Flask-API/static/github_folders/*'])
     # os.system('!rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*')
+    os.system('rm -r static/github_folders/*')
     print("prev git repo deleted successfully !!!")
 
 
@@ -138,35 +355,28 @@ def clear_previous_clones():
 @app.route('/scanrepo', methods=['GET'])
 def scanrepo():
     # !semgrep --config=auto railsgoat --output=output.json --json --verbose
-    inputfolder = "/content/SECUIRX-v2-Flask-API/static/github_folders"
-    outputfolder = "--output=output.json"
+    inputfolder = "static/github_folders"
+    json_file_path = "static/setup/semgrep_mode/output.json"
     
-    # static\setup\semgrep_mode\output.json
-    json_file_path = os.path.join(app.config['SETUP_FOLDER'], 'semgrep_mode', 'output.json')
+    # json_file_path = os.path.join(app.config['SETUP_FOLDER'], 'semgrep_mode', 'output.json')
     print("semgrep - json_file_path : ", json_file_path)
 
-    # subprocess.run(['!semgrep', '--config=auto', inputfolder, outputfolder, '--json', '--verbose'])
+    # !semgrep --config=auto static/github_folders/AtharvaPawar456_yerunkar-corner.git --output=static/setup/semgrep_mode/output.json --json --verbose
 
-    os.system(f"!semgrep --config=auto {inputfolder} {json_file_path} --json --verbose")
-
+    os.system(f"!semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
 
     # Read the content from the JSON file
     with open(json_file_path, 'r') as json_file:
         json_data = json.load(json_file)
 
-    # Print the JSON data
     jData = json.dumps(json_data, indent=2)
-    
     print("scanned repo with semgrep successfully !!!")
-    # print(jData)
     return jData
 
 
 # py, java, c++ files scan
 @app.route('/scanfiles', methods=['GET'])
 def scanpyfile():
-
-
     # List all files in the testcode folder
     files = os.listdir(app.config['UPLOAD_FOLDER'])
     testcode_file = files[0]
