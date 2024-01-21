@@ -1,0 +1,916 @@
+name: Vulnerabilities
+languages:
+  - c++
+
+rules:
+  - id: bufferOverflowExample1
+    pattern: '.*strcpy\(.*\)'
+    message: 'Potential Buffer Overflow using strcpy function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 121: Stack-based Buffer Overflow"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/buffer_overflow_example1
+    correctcode:
+      - 'strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = "\0";'
+
+  - id: bufferOverflowExample2
+    pattern: '.*gets\(.*\)'
+    message: 'Buffer Overflow Risk: Avoid using gets function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example2
+    correctcode:
+      - 'fgets(buffer, sizeof(buffer), stdin);'
+
+  - id: bufferOverflowExample3
+    pattern: '.*sprintf\(.*\)'
+    message: 'Potential Buffer Overflow using sprintf function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example3
+    correctcode:
+      - 'snprintf(dest, sizeof(dest), "%s", src);'
+
+  - id: bufferOverflowExample4
+    pattern: '.*gets_s\(.*\)'
+    message: 'Potential Buffer Overflow using gets_s function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example4
+    correctcode:
+      - 'fgets(buffer, sizeof(buffer), stdin);'
+
+  - id: bufferOverflowExample5
+    pattern: '.*strcpy.*'
+    message: 'Potential Buffer Overflow using strcpy function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example5
+    correctcode:
+      - 'strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = "\0";'
+
+  - id: bufferOverflowExample6
+    pattern: '.*alloca\(.*\)'
+    message: 'Potential Buffer Overflow using alloca function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example6
+    correctcode:
+      - 'size_t size = sizeof(data); char* buffer = (char*)alloca(size);'
+
+  - id: bufferOverflowExample7
+    pattern: '.*memcpy\(.*\)'
+    message: 'Potential Buffer Overflow using memcpy function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example7
+    correctcode:
+      - 'memcpy(dest, src, sizeof(dest));'
+
+  - id: bufferOverflowExample8
+    pattern: '.*strcat\(.*\)'
+    message: 'Potential Buffer Overflow using strcat function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example8
+    correctcode:
+      - 'strncat(dest, src, sizeof(dest) - strlen(dest) - 1);'
+
+  - id: bufferOverflowExample9
+    pattern: '.*gets_unlocked\(.*\)'
+    message: 'Potential Buffer Overflow using gets_unlocked function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example9
+    correctcode:
+      - 'fgets_unlocked(buffer, sizeof(buffer), stdin);'
+
+  - id: bufferOverflowExample10
+    pattern: '.*wmemcpy\(.*\)'
+    message: 'Potential Buffer Overflow using wmemcpy function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example10
+    correctcode:
+      - 'wmemcpy(dest, src, sizeof(dest) / sizeof(wchar_t));'
+
+  - id: bufferOverflowExample11
+    pattern: '.*sprintf_unlocked\(.*\)'
+    message: 'Potential Buffer Overflow using sprintf_unlocked function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example11
+    correctcode:
+      - 'snprintf_unlocked(dest, sizeof(dest), "%s", src);'
+
+  - id: bufferOverflowExample12
+    pattern: '.*vprintf\(.*\)'
+    message: 'Potential Buffer Overflow using vprintf function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example12
+    correctcode:
+      - 'vsnprintf(dest, sizeof(dest), format, args);'
+
+  - id: bufferOverflowExample13
+    pattern: '.*vsprintf\(.*\)'
+    message: 'Potential Buffer Overflow using vsprintf function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example13
+    correctcode:
+      - 'vsnprintf(dest, sizeof(dest), format, args);'
+
+  - id: bufferOverflowExample14
+    pattern: '.*wcscpy\(.*\)'
+    message: 'Potential Buffer Overflow using wcscpy function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example14
+    correctcode:
+      - 'wcsncpy(dest, src, sizeof(dest) / sizeof(wchar_t) - 1); dest[sizeof(dest) / sizeof(wchar_t) - 1] = L"\0";'
+
+  - id: bufferOverflowExample15
+    pattern: '.*gets\(.*\)'
+    message: 'Potential Buffer Overflow using gets function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example15
+    correctcode:
+      - 'fgets(buffer, sizeof(buffer), stdin); buffer[strcspn(buffer, "\n")] = "\0";'
+
+  - id: bufferOverflowExample16
+    pattern: '.*strcpy\(.*\)'
+    message: 'Potential Buffer Overflow using strcpy function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example16
+    correctcode:
+      - 'strncpy(dest, src, sizeof(dest) - 1); dest[sizeof(dest) - 1] = "\0";'
+
+  - id: bufferOverflowExample17
+    pattern: '.*sprintf\(.*\)'
+    message: 'Potential Buffer Overflow using sprintf function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/buffer_overflow_example17
+    correctcode:
+      - 'snprintf(dest, sizeof(dest), "%s", src);'
+
+  - id: sqlInjectionExample1
+    pattern: '.*execute\(.*\)'
+    message: 'Potential SQL Injection using execute function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example1
+    correctcode:
+      - 'prepare("SELECT * FROM users WHERE username = ?"); execute(username_param);'
+
+  - id: sqlInjectionExample2
+    pattern: '.*query\(.*\)'
+    message: 'Potential SQL Injection using query function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example2
+    correctcode:
+      - 'query("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample3
+    pattern: '.*executeQuery\(.*\)'
+    message: 'Potential SQL Injection using executeQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example3
+    correctcode:
+      - 'executeQuery("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample4
+    pattern: '.*exec\(.*\)'
+    message: 'Potential SQL Injection using exec function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example4
+    correctcode:
+      - 'exec("SELECT * FROM users WHERE username = ?"); bindParam(username_param); execute();'
+
+  - id: sqlInjectionExample5
+    pattern: '.*db_query\(.*\)'
+    message: 'Potential SQL Injection using db_query function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example5
+    correctcode:
+      - 'db_query("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample6
+    pattern: '.*runSQL\(.*\)'
+    message: 'Potential SQL Injection using runSQL function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example6
+    correctcode:
+      - 'runSQL("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample7
+    pattern: '.*executeSQL\(.*\)'
+    message: 'Potential SQL Injection using executeSQL function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example7
+    correctcode:
+      - 'executeSQL("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample8
+    pattern: '.*submitQuery\(.*\)'
+    message: 'Potential SQL Injection using submitQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example8
+    correctcode:
+      - 'submitQuery("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample9
+    pattern: '.*executeCommand\(.*\)'
+    message: 'Potential SQL Injection using executeCommand function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example9
+    correctcode:
+      - 'executeCommand("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample10
+    pattern: '.*runQuery\(.*\)'
+    message: 'Potential SQL Injection using runQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example10
+    correctcode:
+      - 'runQuery("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample11
+    pattern: '.*executeDBCommand\(.*\)'
+    message: 'Potential SQL Injection using executeDBCommand function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example11
+    correctcode:
+      - 'executeDBCommand("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample12
+    pattern: '.*queryDB\(.*\)'
+    message: 'Potential SQL Injection using queryDB function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example12
+    correctcode:
+      - 'queryDB("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample13
+    pattern: '.*executeSQLCommand\(.*\)'
+    message: 'Potential SQL Injection using executeSQLCommand function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example13
+    correctcode:
+      - 'executeSQLCommand("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample14
+    pattern: '.*runDatabaseQuery\(.*\)'
+    message: 'Potential SQL Injection using runDatabaseQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example14
+    correctcode:
+      - 'runDatabaseQuery("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample15
+    pattern: '.*execSQLQuery\(.*\)'
+    message: 'Potential SQL Injection using execSQLQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example15
+    correctcode:
+      - 'execSQLQuery("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample16
+    pattern: '.*runDynamicQuery\(.*\)'
+    message: 'Potential SQL Injection using runDynamicQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example16
+    correctcode:
+      - 'runDynamicQuery("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: sqlInjectionExample17
+    pattern: '.*processSQL\(.*\)'
+    message: 'Potential SQL Injection using processSQL function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example17
+    correctcode:
+      - 'processSQL("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample18
+    pattern: '.*executeDynamicQuery\(.*\)'
+    message: 'Potential SQL Injection using executeDynamicQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example18
+    correctcode:
+      - 'executeDynamicQuery("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample19
+    pattern: '.*submitSQLQuery\(.*\)'
+    message: 'Potential SQL Injection using submitSQLQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example19
+    correctcode:
+      - 'submitSQLQuery("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample20
+    pattern: '.*executeSQLStatement\(.*\)'
+    message: 'Potential SQL Injection using executeSQLStatement function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example20
+    correctcode:
+      - 'executeSQLStatement("SELECT * FROM users WHERE username = "" + sanitize(username) + "" ");'
+
+  - id: sqlInjectionExample21
+    pattern: '.*processDatabaseQuery\(.*\)'
+    message: 'Potential SQL Injection using processDatabaseQuery function.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021-Injection
+      source_rule_url: https://example.com/sql_injection_example21
+    correctcode:
+      - 'processDatabaseQuery("SELECT * FROM users WHERE username = ?", username);'
+
+  - id: integerOverflowExample1
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*[+*-\/%]\s*(\d+).*'
+    message: 'Potential Integer Overflow due to arithmetic operation without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example1
+    correctcode:
+      - 'int result = static_cast<int>(a) + b; // Safe addition with proper bounds checking.'
+
+  - id: integerOverflowExample2
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*[*\/]\s*(\d+).*'
+    message: 'Potential Integer Overflow due to multiplication or division without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example2
+    correctcode:
+      - 'int result = a * b; // Safe multiplication with proper bounds checking.'
+
+  - id: integerOverflowExample3
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*[-]\s*(\d+).*'
+    message: 'Potential Integer Overflow due to subtraction without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example3
+    correctcode:
+      - 'int result = a - b; // Safe subtraction with proper bounds checking.'
+
+  - id: integerOverflowExample4
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*%(\d+).*'
+    message: 'Potential Integer Overflow due to modulo operation without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example4
+    correctcode:
+      - 'int result = a % b; // Safe modulo operation with proper bounds checking.'
+
+  - id: integerOverflowExample5
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*\/\s*(\d+).*'
+    message: 'Potential Integer Overflow due to division without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example5
+    correctcode:
+      - 'int result = a / b; // Safe division with proper bounds checking.'
+
+  - id: integerOverflowExample6
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*<<\s*(\d+).*'
+    message: 'Potential Integer Overflow due to left shift without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example6
+    correctcode:
+      - 'int result = a << b; // Safe left shift with proper bounds checking.'
+
+  - id: integerOverflowExample7
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*>>\s*(\d+).*'
+    message: 'Potential Integer Overflow due to right shift without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example7
+    correctcode:
+      - 'int result = a >> b; // Safe right shift with proper bounds checking.'
+
+  - id: integerOverflowExample8
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*\+\s*([a-zA-Z_]\w*).*'
+    message: 'Potential Integer Overflow due to addition with a variable without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example8
+    correctcode:
+      - 'int result = a + static_cast<int>(b); // Safe addition with proper bounds checking.'
+
+  - id: integerOverflowExample9
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*\*\s*([a-zA-Z_]\w*).*'
+    message: 'Potential Integer Overflow due to multiplication with a variable without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example9
+    correctcode:
+      - 'int result = a * static_cast<int>(b); // Safe multiplication with proper bounds checking.'
+
+  - id: integerOverflowExample10
+    pattern: '.*int\s[^\d]*=\s(\d+)\s*\/\s*([a-zA-Z_]\w*).*'
+    message: 'Potential Integer Overflow due to division by a variable without proper bounds checking.'
+    languages:
+      - cpp
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 190: Integer Overflow or Wraparound"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021-Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com/integer_overflow_example10
+    correctcode:
+      - 'int result = a / (b != 0 ? static_cast<int>(b) : 1); // Safe division with proper bounds checking.'

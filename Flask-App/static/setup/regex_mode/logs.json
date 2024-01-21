@@ -1,0 +1,1262 @@
+[
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 5,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(dest, src);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 9,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(buffer, input);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 13,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(destination, source);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 17,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(destinationArray, sourceString);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 21,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(target, sourceData);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 25,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(bufferString, inputString);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 29,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(result, inputText);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 33,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(output, inputMessage);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 37,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(destBuffer, srcText);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample1",
+    "line_number": 41,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcpy(destinationString, sourceValue);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcpy function.",
+    "cwe": [
+      "CWE 121: Stack-based Buffer Overflow"
+    ],
+    "owasp": [
+      "A9:2021-Using Components with Known Vulnerabilities"
+    ],
+    "approxcorrectCode": [
+      "strncpy(dest, src, sizeof(dest)-1); dest[sizeof(dest)-1] = \"\\0\";"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 45,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(buffer);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 48,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(input);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 51,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(data);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 54,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(userInput);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 57,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(text);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 60,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(inputString);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 63,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(outputBuffer);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 66,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(inputBuffer);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 69,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(userText);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample2",
+    "line_number": 72,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "gets(inputArray);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Buffer Overflow Risk: Avoid using gets function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "fgets(buffer, sizeof(buffer), stdin);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 78,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest1, src1, sizeof(src1));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 82,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest2, src2, strlen(src2) + 1);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 86,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest3, src3, sizeof(src3));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 90,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest4, src4, sizeof(src4));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 94,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest5, src5, strlen(src5));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 98,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest6, src6, sizeof(src6));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 107,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(&dest7, &src7, sizeof(Data));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 111,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest8, src8, sizeof(src8));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 115,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest9, src9, sizeof(src9));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 120,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest10, src10, sizeof(src10));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 126,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest1, src1, sizeof(src1));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 130,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest2, src2, strlen(src2) + 1);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 134,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest3, src3, sizeof(src3));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 138,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest4, src4, sizeof(src4));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 142,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest5, src5, strlen(src5));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 146,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest6, src6, sizeof(src6));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 155,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(&dest7, &src7, sizeof(Data));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 159,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest8, src8, sizeof(src8));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 163,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest9, src9, sizeof(src9));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample7",
+    "line_number": 168,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "memcpy(dest10, src10, sizeof(src10));",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using memcpy function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "memcpy(dest, src, sizeof(dest));"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 172,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest1, src1);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 176,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest2, src2);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 180,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest3, src3);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 184,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest4, src4);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 188,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest5, src5);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 192,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest6, src6);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 196,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest7, src7);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 200,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest8, src8);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 204,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest9, src9);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "bufferOverflowExample8",
+    "line_number": 208,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "strcat(dest10, src10);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential Buffer Overflow using strcat function.",
+    "cwe": [
+      "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "strncat(dest, src, sizeof(dest) - strlen(dest) - 1);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 214,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(sqlQuery1);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 217,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(sqlQuery2);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 220,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(sqlCommand3);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 223,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(sqlCommand4);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 226,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(dbQuery5);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 229,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(dbCommand6);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 232,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(sqlStatement7);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 235,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(sqlCommand8);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 238,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(dbQuery9);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample2",
+    "line_number": 241,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "query(sqlCommand10);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using query function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "query(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 246,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(\"SELECT * FROM employees WHERE department = 'IT'\");",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 249,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(dynamicSql1);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 252,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(dynamicQuery2);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 255,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(sqlCommand3);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 258,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(dynamicCommand4);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 260,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(\"SELECT * FROM orders WHERE total_price > 1000\");",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 263,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(dbStatement5);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 266,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(sqlQuery6);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 269,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(dynamicSql7);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  },
+  {
+    "id": "sqlInjectionExample16",
+    "line_number": 272,
+    "filename": "codeGoat - Copy (2).c++",
+    "code": "runDynamicQuery(dbQuery8);",
+    "impact": "HIGH",
+    "severity": "HIGH",
+    "message": "Potential SQL Injection using runDynamicQuery function.",
+    "cwe": [
+      "CWE 89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    ],
+    "owasp": [
+      "A1:2021-Injection"
+    ],
+    "approxcorrectCode": [
+      "runDynamicQuery(\"SELECT * FROM users WHERE username = ?\", username);"
+    ]
+  }
+]

@@ -1,0 +1,1592 @@
+name: Vulnerabilities
+languages:
+  - python
+
+rules:
+  - id: infoExposureComments
+    pattern: '#\s*(password|api_key|secret_key)\s*=\s*".*"'
+    message: Semgrep found sensitive information in comments
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 200: Information Exposure"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: sqlInjection
+    pattern: 'select\s+\*\s+from\s+\w+\s+where\s+\w+\s*=\s*".*"'
+    message: Semgrep found potential SQL injection pattern
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 89: SQL Injection"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: commandInjection
+    pattern: 'os\.system\(.*\)'
+    message: Semgrep found potential command injection pattern
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 77: Improper Neutralization of Special Elements used in a Command ('Command Injection')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: pathTraversal
+    pattern: 'read_file\(.+\)'
+    message: Semgrep found potential path traversal pattern
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A4:2021 Insecure Design
+      source_rule_url: https://example.com
+
+  - id: insecureDeserialization
+    pattern: 'pickle\.loads\(.*\)'
+    message: Semgrep found potential insecure deserialization pattern
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 502: Deserialization of Untrusted Data"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+
+  - id: xss
+    pattern: 'print\(request\.get\(.*\)\)'
+    message: Semgrep found potential cross-site scripting (XSS) pattern
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A7:2021 Cross-Site Scripting (XSS)
+      source_rule_url: https://example.com
+
+  - id: csrf
+    pattern: '<form\s+action\s*=\s*".*"\s+method\s*=\s*".*">'
+    message: Semgrep found potential Cross-Site Request Forgery (CSRF) pattern
+    languages:
+      - html
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 352: Cross-Site Request Forgery (CSRF)"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A8:2021 Cross-Site Request Forgery (CSRF)
+      source_rule_url: https://example.com
+
+  - id: insecureRandomness
+    pattern: 'random\.randint\(.*\)'
+    message: Semgrep found potential insecure randomness usage
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 338: Use of Cryptographically Weak PRNG"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: hardcodedCredentials
+    pattern: 'username\s*=\s*".*"\s+password\s*=\s*".*"'
+    message: Semgrep found hardcoded credentials
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 259: Use of Hard-coded Password"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: unhandledExceptions
+    pattern: 'try:\s*\n\s*.*\n\s*except\s*.*:'
+    message: Semgrep found unhandled exceptions pattern
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 391: Unchecked Error Condition"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: weakCryptography
+    pattern: 'md5\(.+\)'
+    message: Semgrep found usage of weak cryptography (MD5)
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 327: Use of a Broken or Risky Cryptographic Algorithm"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: incorrectRegex
+    pattern: 're\.compile\(.*\)'
+    message: Semgrep found potential incorrect regular expression usage
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 185: Incorrect Regular Expression"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: unvalidatedRedirects
+    pattern: 'redirect\(.*\)'
+    message: Semgrep found potential unvalidated redirects or forwards
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 601: URL Redirection to Untrusted Site ('Open Redirect')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A10:2021 Unvalidated Redirects and Forwards
+      source_rule_url: https://example.com
+
+  - id: infoDisclosureErrors
+    pattern: 'print\(.*exception.*\)'
+    message: Semgrep found potential information disclosure in error messages
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 209: Information Exposure Through an Error Message"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: deprecatedFunctions
+    pattern: 'urllib\.urlopen\(.*\)'
+    message: Semgrep found usage of deprecated function urllib.urlopen()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 477: Use of Obsolete Function"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: lackOfInputValidation
+    pattern: 'request\.get\(.*\)'
+    message: Semgrep found lack of input validation in request parameters
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 20: Improper Input Validation"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: unencryptedCommunication
+    pattern: 'http\.get\(.*\)'
+    message: Semgrep found unencrypted communication using HTTP
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 311: Missing Encryption of Sensitive Data"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: weakAuthentication
+    pattern: 'if\s+username\s*==\s*".*"\s+and\s+password\s*==\s*".*":'
+    message: Semgrep found weak authentication using if username and password checks
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 321: Use of Hard-coded Cryptographic Key"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A2:2021 Broken Authentication
+      source_rule_url: https://example.com
+
+  - id: unsanitizedOutput
+    pattern: 'print\(.*input.*\)'
+    message: Semgrep found unsanitized output using print and input combination
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A7:2021 Cross-Site Scripting (XSS)
+      source_rule_url: https://example.com
+
+  - id: xxeInjection
+    pattern: 'xml\.parse\(.*\)'
+    message: Semgrep found potential XML External Entity (XXE) injection
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 611: Improper Restriction of XML External Entity Reference"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A4:2021 XML External Entities (XXE)
+      source_rule_url: https://example.com
+
+  - id: codeInjection
+    pattern: 'eval\(.*\)'
+    message: Semgrep found potential code injection using eval()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 94: Improper Control of Generation of Code ('Code Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: improperSessionHandling
+    pattern: 'session\[.*\]\s*=\s*.*'
+    message: Semgrep found improper session handling using session[]
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 384: Session Fixation"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: bufferOverflow
+    pattern: 'array\s*=\s*\[.*\]'
+    message: Semgrep found potential buffer overflow using array assignment
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: insufficientFilePermissions
+    pattern: 'chmod\(.*\)'
+    message: Semgrep found potential insufficient file permissions using chmod()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 276: Incorrect Default Permissions"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A5:2021 Broken Access Control
+      source_rule_url: https://example.com
+
+  - id: unauthenticatedFunctionCalls
+    pattern: 'admin\.delete\(.*\)'
+    message: Semgrep found potential unauthenticated function calls to admin.delete()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 285: Improper Authorization"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A5:2021 Broken Access Control
+      source_rule_url: https://example.com
+
+  - id: memoryLeak
+    pattern: 'malloc\(.*\)'
+    message: Semgrep found potential memory leak using malloc()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 401: Improper Release of Memory Before Removing Last Reference ('Memory Leak')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: insiderThreat
+    pattern: 'if\s+user\s*==\s*".*":'
+    message: Semgrep found potential insider threat using user comparison
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 522: Insufficiently Protected Credentials"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: infoDisclosureSource
+    pattern: 'print\(.*source.*\)'
+    message: Semgrep found potential information disclosure in source code using print and source combination
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 200: Information Exposure"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: weakPasswordStorage
+    pattern: 'password\s*=\s*".*"\s*'
+    message: Semgrep found potential weak password storage using password assignment
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 522: Insufficiently Protected Credentials"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: xssi
+    pattern: 'jsonp\(.*\)'
+    message: Semgrep found potential Cross-Site Script Inclusion (XSSI) using jsonp()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 942: Overly Permissive Cross-domain Whitelist"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: insecureDependencies
+    pattern: 'import\s+insecure_module'
+    message: Semgrep found usage of insecure dependencies through import of insecure_module
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 937: OWASP Top Ten 2013 Category A5 - Security Misconfiguration"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: exposedDebugEndpoints
+    pattern: 'app\.run\(debug=True\)'
+    message: Semgrep found exposed debugging endpoints through app.run(debug=True)
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 209: Information Exposure Through an Error Message"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: sslValidation
+    pattern: 'requests\.get\(.*verify=False\)'
+    message: Semgrep found lack of SSL certificate validation using requests.get() with verify=False
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 295: Improper Certificate Validation"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: insufficientLogging
+    pattern: 'print\(.*log.*\)'
+    message: Semgrep found potential insufficient logging and monitoring using print and log combination
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 778: Insufficient Logging"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A10:2021 Insufficient Logging & Monitoring
+      source_rule_url: https://example.com
+
+  - id: privacyViolation
+    pattern: 'get_user_data\(user_id\)'
+    message: Semgrep found potential privacy violation by accessing user data using get_user_data()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 359: Exposure of Private Information ('Privacy Violation')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: dataLeakage
+    pattern: 'print\(.*sensitive_data.*\)'
+    message: Semgrep found potential data leakage using print and sensitive_data combination
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 532: Information Exposure Through Log Files"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: untrustedDeserialization
+    pattern: 'json\.loads\(.*\)'
+    message: Semgrep found potential untrusted deserialization using json.loads()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 502: Deserialization of Untrusted Data"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: openRedirect
+    pattern: 'redirect\(.*\)'
+    message: Semgrep found potential open redirect using redirect()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 601: URL Redirection to Untrusted Site ('Open Redirect')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A10:2021 Broken Access Control
+      source_rule_url: https://example.com
+
+  - id: memoryCorruption
+    pattern: 'buffer\s*=\s*malloc\(.*\)'
+    message: Semgrep found potential memory corruption using buffer allocation with malloc()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 119: Improper Restriction of Operations within the Bounds of a Memory Buffer"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: nullPointerDereference
+    pattern: 'if\s+pointer\s*==\s*None:'
+    message: Semgrep found potential null pointer dereference using if pointer == None
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 476: NULL Pointer Dereference"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: clickjacking
+    pattern: '<iframe\s+src\s*=\s*".*"\s+style\s*=\s*".*">'
+    message: Semgrep found potential clickjacking using <iframe> with src and style attributes
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 1021: Improper Check or Handling of an Alternate OS Command"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: insecureCORS
+    pattern: 'app\.route\(.*\)'
+    message: Semgrep found potential insecure Cross-Origin Resource Sharing (CORS) using app.route()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 942: Overly Permissive Cross-domain Whitelist"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: useAfterFree
+    pattern: 'free\(.*\)'
+    message: Semgrep found potential use after free vulnerability using free()
+    languages:
+      - c
+      - c++
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 416: Use After Free"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: unvalidatedFileInput
+    pattern: 'file\s*=\s*open\(.*\)'
+    message: Semgrep found potential unvalidated input in file operations using open()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 377: Insecure Temporary File"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: insecureDefaultConfig
+    pattern: 'debug\s*=\s*True'
+    message: Semgrep found potential insecure default configuration with debug=True
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 256: Plaintext Storage of a Password"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure
+      source_rule_url: https://example.com
+
+  - id: raceConditions
+    pattern: 'thread\.start\(.*\)'
+    message: Semgrep found potential race conditions using thread.start()
+    languages:
+      - python
+      - java
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: hiddenFunctionality
+    pattern: 'if\s+admin_mode\s*==\s*True:'
+    message: Semgrep found a hidden functionality condition in the code
+    languages:
+      - any
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE XXX: Description of CWE XXX"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A4:2021 Insecure Design
+      technology:
+        - flask
+        - django
+      source_rule_url: https://example.com
+
+  - id: resourceExhaustion
+    pattern: 'while\s+True:\s*\n\s*.*'
+    message: Semgrep found potential resource exhaustion using infinite loop while True
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 400: Uncontrolled Resource Consumption ('Resource Exhaustion')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: predictableResourceLocation
+    pattern: 'open\(.*\)'
+    message: Semgrep found potential predictable resource location using open()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 538: File and Directory Information Exposure"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A5:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: unsecuredAPIs
+    pattern: 'app\.add_route\(.*\)'
+    message: Semgrep found potential unsecured APIs using app.add_route()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 284: Improper Access Control"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A5:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: unrestrictedFileUpload
+    pattern: 'app\.route\(.*upload.*\)'
+    message: Semgrep found potential unrestricted file upload using app.route() with 'upload'
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 434: Unrestricted Upload of File with Dangerous Type"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A7:2021 Cross-Site Scripting (XSS)
+      source_rule_url: https://example.com
+
+  - id: brokenAuthentication
+    pattern: 'login\(.*\)'
+    message: Semgrep found potential broken authentication using login() function
+    languages:
+      - python
+    severity: CRITICAL
+    metadata:
+      category: security
+      cwe:
+        - "CWE 287: Improper Authentication"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A2:2021 Broken Authentication
+      source_rule_url: https://example.com
+
+  - id: codeObfuscation
+    pattern: 'eval\(.*\)'
+    message: Semgrep found potential code obfuscation using eval() function
+    languages:
+      - python
+      - javascript
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 250: Execution with Unnecessary Privileges"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: insecureTempFile
+    pattern: 'tmp_file\s*=\s*tempfile\.NamedTemporaryFile\(.*\)'
+    message: Semgrep found potential insecure temporary file creation using NamedTemporaryFile()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 377: Insecure Temporary File"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A5:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: insufficientAntiAutomation
+    pattern: 'captcha_check\(.*\)'
+    message: Semgrep found potential insufficient anti-automation using captcha_check()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 660: Improper Enforcement of a Single, Unique Action"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A4:2021 Insecure Design
+      source_rule_url: https://example.com
+
+  - id: improperErrorHandling
+    pattern: 'try:\s*\n\s*.*\n\s*except\s*.*:'
+    message: Semgrep found potential improper error handling using try-except block
+    languages:
+      - any
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 396: Declaration of Catch for Generic Exception"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: infoDisclosureUrl
+    pattern: 'print\(.*url.*\)'
+    message: Semgrep found potential information disclosure in URL using print(url)
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 598: Information Exposure Through Query Strings in URL"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: businessLogicFlaw
+    pattern: 'if\s+user_type\s*==\s*"admin":'
+    message: Semgrep found potential business logic flaw using if user_type == "admin"
+    languages:
+      - python
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 840: Business Logic Errors"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: xmlInjection
+    pattern: 'xml\.parse\(.*\)'
+    message: Semgrep found potential XML injection using xml.parse()
+    languages:
+      - python
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 643: Improper Neutralization of Data within XML Structure"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: improperRedirects
+    pattern: 'redirect\(.*\)'
+    message: Semgrep found potential improper redirects using redirect()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 601: URL Redirection to Untrusted Site ('Open Redirect')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: MEDIUM
+      owasp:
+        - A10:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: unvalidatedLdapInput
+    pattern: 'ldap\.search\(.*\)'
+    message: Semgrep found potential unvalidated input in LDAP queries using ldap.search()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 90: Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: insecureXssPrevention
+    pattern: 'escape_html\(.*\)'
+    message: Semgrep found potential insecure XSS prevention using escape_html()
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      cwe:
+        - "CWE 79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A7:2021 Cross-Site Scripting (XSS)
+      source_rule_url: https://example.com
+
+  - id: insecurePatternMatching
+    pattern: 're\.search\(.*\)'
+    message: Semgrep found potential insecure pattern matching using re.search()
+    languages:
+      - python
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 20: Improper Input Validation"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: privilegeEscalation
+    pattern: 'if\s+user_role\s*==\s*"admin":'
+    message: Semgrep found potential privilege escalation using if user_role == "admin"
+    languages:
+      - python
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 269: Privilege Separation and Independent Privilege Escalation"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A4:2021 Insecure Design
+      source_rule_url: https://example.com
+
+  - id: insiderDataTheft
+    pattern: 'if\s+employee\s*==\s*"resigned":'
+    message: Semgrep found potential insider data theft using if employee == "resigned"
+    languages:
+      - python
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 532: Information Exposure Through Log Files"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A10:2021 Insufficient Logging & Monitoring
+      source_rule_url: https://example.com
+
+  - id: dosVulnerability
+    pattern: 'while\s+True:\s*\n\s*.*'
+    message: Semgrep found potential denial of service (DoS) vulnerability using while True loop
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 400: Uncontrolled Resource Consumption ('Resource Exhaustion')"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: insecureObjectSerialization
+    pattern: 'pickle\.dumps\(.*\)'
+    message: Semgrep found potential insecure object serialization using pickle.dumps()
+    languages:
+      - python
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 502: Deserialization of Untrusted Data"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: clickHijacking
+    pattern: '<div\s+style\s*=\s*".*position:\s*absolute.*">'
+    message: Semgrep found potential click hijacking using absolute positioned div
+    languages:
+      - html
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 1020: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: ssrf
+    pattern: 'request\.get\(.*\)'
+    message: Semgrep found potential server-side request forgery (SSRF) using request.get()
+    languages:
+      - python
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 918: Server-Side Request Forgery (SSRF)"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: infoDisclosureLogs
+    pattern: 'log\(.*sensitive_data.*\)'
+    message: Semgrep found potential information disclosure in logs using sensitive_data
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 532: Information Exposure Through Log Files"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A10:2021 Insufficient Logging & Monitoring
+      source_rule_url: https://example.com
+
+  - id: mobileCodeSecurity
+    pattern: 'eval\(.*\)'
+    message: Semgrep found potential mobile code security issue using eval()
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 94: Improper Control of Generation of Code ('Code Injection')"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: hardcodedEncryptionKeys
+    pattern: 'key\s*=\s*".*"\s*'
+    message: Semgrep found potential hardcoded encryption keys
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 321: Use of Hard-coded Cryptographic Key"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: sensitive_data_exposure
+    pattern: 'print\(.*credit_card.*\)'
+    message: Semgrep found potential sensitive data exposure through print() function
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 532: Information Exposure Through Log Files"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Data Exposure
+      source_rule_url: https://example.com
+
+  - id: insufficient_upload_validation
+    pattern: 'app\.route\(.*upload.*\)'
+    message: Semgrep found potential insufficient input validation in file uploads
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 434: Unrestricted Upload of File with Dangerous Type"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: insecure_data_storage
+    pattern: 'write_to_file\(.*\)'
+    message: Semgrep found potential insecure data storage using write_to_file()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 313: Cleartext Storage of Sensitive Information"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A3:2021 Data Exposure
+      source_rule_url: https://example.com
+
+  - id: unchecked_return_value
+    pattern: 'os\.remove\(.*\)'
+    message: Semgrep found potential unchecked return value of os.remove() function
+    languages:
+      - any
+    severity: LOW
+    metadata:
+      category: security
+      cwe:
+        - "CWE 252: Unchecked Return Value"
+      confidence: LOW
+      likelihood: LOW
+      impact: LOW
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: missing_auth_critical_functionality
+    pattern: 'app\.route\(.*admin.*\)'
+    message: Semgrep found potential missing authentication for critical functionality
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 862: Missing Authorization"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A2:2021 Broken Authentication
+      source_rule_url: https://example.com
+
+  - id: unsafe_reflection
+    pattern: 'getattr\(.*\)'
+    message: Semgrep found potential unsafe reflection using getattr() function
+    languages:
+      - python
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 915: Improperly Controlled Modification of Dynamically-Determined Object Attributes"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: over_privileged_code
+    pattern: 'allow_all_permissions\(.*\)'
+    message: Semgrep found potential over-privileged code allowing all permissions
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 639: Authorization Bypass Through User-Controlled Key"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A5:2021 Broken Access Control
+      source_rule_url: https://example.com
+
+  - id: unvalidated_xpath_input
+    pattern: 'xml\.find\(.*\)'
+    message: Semgrep found potential unvalidated input in XPath queries using xml.find()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 643: Improper Neutralization of Data within XPath Expressions"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A1:2021 Injection
+      source_rule_url: https://example.com
+
+  - id: insecure_redirect_validation
+    pattern: 'validate_redirect\(.*\)'
+    message: Semgrep found potential insecure redirect validation using validate_redirect()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 601: URL Redirection to Untrusted Site ('Open Redirect')"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A10:2021 Insecure Redirects and Forwards
+      source_rule_url: https://example.com
+
+  - id: unsafe_url_generation
+    pattern: 'url_for\(.*\)'
+    message: Semgrep found potential unsafe URL generation using url_for()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 97: Use of Uninitialized Variable"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: insecure_resource_deletion
+    pattern: 'os\.remove\(.*\)'
+    message: Semgrep found potential insecure deletion of resources using os.remove()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 379: Creation of Temporary File With Insecure Permissions"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A5:2021 Broken Access Control
+      source_rule_url: https://example.com
+
+  - id: security_misconfiguration
+    pattern: 'debug\s*=\s*True'
+    message: Semgrep found potential security misconfiguration with debug=True
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 16: Configuration"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A6:2021 Security Misconfiguration
+      source_rule_url: https://example.com
+
+  - id: insecure_key_management
+    pattern: 'key\s*=\s*".*"\s*'
+    message: Semgrep found potential insecure key management
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 321: Use of Hard-coded Cryptographic Key"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Insecure Data Storage
+      source_rule_url: https://example.com
+
+  - id: insecure_ipc
+    pattern: 'socket\.socket\(.*\)'
+    message: Semgrep found potential insecure interprocess communication using socket.socket()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 829: Inclusion of Functionality from Untrusted Control Sphere"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A10:2021 Insufficient Logging and Monitoring
+      source_rule_url: https://example.com
+
+  - id: mass_assignment
+    pattern: 'user\.update\(.*\)'
+    message: Semgrep found potential mass assignment vulnerability using user.update()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 915: Improperly Controlled Modification of Dynamically-Determined Object Attributes"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A5:2021 Broken Access Control
+      source_rule_url: https://example.com
+
+  - id: unrestricted_regex
+    pattern: 're\.compile\(.*\)'
+    message: Semgrep found potential unrestricted regex compilation using re.compile()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 20: Improper Input Validation"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: insecure_data_parsing
+    pattern: 'csv\.reader\(.*\)'
+    message: Semgrep found potential insecure data parsing using csv.reader()
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 327: Use of a Broken or Risky Cryptographic Algorithm"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A9:2021 Using Components with Known Vulnerabilities
+      source_rule_url: https://example.com
+
+  - id: missing_authorization
+    pattern: 'if\s+user\s*==\s*admin:'
+    message: Semgrep found potential missing authorization check for admin user
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 285: Improper Authorization"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A5:2021 Broken Access Control
+      source_rule_url: https://example.com
+
+  - id: insecure_jwt
+    pattern: 'jwt\.decode\(.*\)'
+    message: Semgrep found potential insecure JWT implementation using jwt.decode()
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 347: Improper Verification of Cryptographic Signature"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A2:2021 Broken Authentication
+      source_rule_url: https://example.com
+
+  - id: untrusted_env_variables
+    pattern: 'os\.environ\[".*"\]'
+    message: Semgrep found potential use of untrusted environment variables using os.environ[]
+    languages:
+      - any
+    severity: MEDIUM
+    metadata:
+      category: security
+      cwe:
+        - "CWE 494: Download of Code Without Integrity Check"
+      confidence: MEDIUM
+      likelihood: MEDIUM
+      impact: MEDIUM
+      owasp:
+        - A3:2021 Insecure Deserialization
+      source_rule_url: https://example.com
+
+  - id: csrf_bypass
+    pattern: 'csrf_token\s*=\s*request\.headers\[".*"\]'
+    message: Semgrep found potential Cross-Site Request Forgery (CSRF) protection bypass using request headers
+    languages:
+      - any
+    severity: HIGH
+    metadata:
+      category: security
+      cwe:
+        - "CWE 352: Cross-Site Request Forgery (CSRF)"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A8:2021 Insecure Deserialization
+      source_rule_url: https://example.com

@@ -1,0 +1,289 @@
+rules:
+  - id: infoExposureComments
+    pattern: 'regex pattern...'
+    message: ...comments
+    languages:
+      - python
+    severity: WARNING or ...
+    metadata:
+      category: security
+      cwe:
+        - "CWE 200: Information Exposure"
+      confidence: MEDIUM
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Sensitive Data Exposure or ...
+      source_rule_url: https://example.com
+    correctcode:
+      - ...
+
+give 4 c++ Integer Overflow in above format with correction in correctcode
+pattern field is in re means regex format
+
+
+    pattern: '\b(?:Runtime\.getRuntime\(\)\.exec|ProcessBuilder\.start\())\s*\(\s*".*"\s*\+\s*[^)]*\)'
+
+give example 20 code lines for this re pattern
+in single code format and without number points
+
+
+for this regex pattern : '.*runDynamicQuery\(.*\)'
+give 10 example code lines  with out numbering in single code format
+
+### for c++:
+
+Buffer Overflow
+SQL Injection
+Cross-site Scripting (XSS)
+Cross-site Request Forgery (CSRF)
+Integer Overflow
+Format String Vulnerability
+Insecure Dependencies
+Insecure File Operations
+Insecure Randomness
+Insecure Cryptographic Practices
+Command Injection
+Path Traversal
+Insecure Memory Allocation
+Unvalidated Input
+Code Injection
+Insecure Object References
+XML External Entity (XXE) Injection
+Security Misconfiguration
+Insecure Code Execution
+Insufficient Session Management
+Improper Error Handling
+Insecure Data Storage
+Race Conditions
+Insecure Authentication
+Insecure Authorization
+DLL Injection
+Unchecked Return Values
+Code Injection
+Use After Free
+Time-of-Check to Time-of-Use (TOCTOU) Race Condition
+Memory Leaks
+Denial-of-Service (DoS)
+Side Channel Attacks
+Untrusted Search Path
+Insufficient Input Validation
+Insecure Third-party Libraries
+Reverse Engineering
+Mobile Code Execution
+Insufficient Logging and Monitoring
+Insecure Network Communication
+WebSockets Security Issues
+UI Redressing (Clickjacking)
+Man-in-the-Middle (MitM) Attacks
+Improper Restriction of Operations within the Bounds of a Memory Buffer
+Security Bypass Through Obfuscation and Hardening
+Insecure Biometric Data Handling
+Business Logic Vulnerabilities
+Insecure API Usage
+Security Through Obscurity
+Insecure Deserialization
+Missing Function-Level Access Control
+Insecure Compiler Optimizations
+Insecure Timekeeping
+Cross-Origin Resource Sharing (CORS) Issues
+HTTP Header Injection
+Insecure Cross-Process Communication
+Insecure Cross-Origin Communication
+Security Flaws in Inter-Process Communication (IPC)
+Insecure Bluetooth Communication
+Insecure USB Communication
+Insecure SNMP Implementation
+Lack of Code Signing
+Insufficient Code Obfuscation
+Insecure Cloud Storage
+Weak Cryptographic Key Generation
+Insecure Multithreading
+Insecure Forking and Process Creation
+Insufficient Entropy in Random Number Generation
+Incorrect Permission Assignment for Critical Resources
+Insufficient Session Timeout
+LDAP Injection
+Insecure WebGL Implementation
+Insecure WebGL Communication
+Security Risks in 3rd Party Integrations
+Lack of Binary Protections
+Insecure Binary Planting (aka DLL Preloading, Binary Sideloading)
+Insecure Pseudo-Random Number Generation
+Insecure Cross-Domain Policies
+Insecure Cross-Site Printing
+Insecure Cross-Site Messaging
+Web Storage Vulnerabilities
+Click-to-Play Plugin Issues
+Insecure Resource Management
+Unrestricted Upload of File with Dangerous Type
+Insecure Broadcast Receiver in Android Apps
+Lack of Content Security Policy (CSP)
+Insecure Implementation of OAuth
+Insecure Implementation of OpenID Connect
+Security Issues in Protocol Implementations (e.g., SSL/TLS)
+Insecure Hardware Interfaces
+Insecure User Interface Design
+Security Risks in Inter-Application Communication
+Insecure WebGL Shader Code
+Insufficient Security Hardening of the Operating System
+Insecure Use of Biometrics for Authentication
+Insecure Key Storage
+Insufficient Password Management
+Security Risks in Automatic Code Generation
+Insecure Backup and Restore Processes
+Insufficient Separation of Environments
+Insecure Initialization of Resources
+Insufficient Input Filtering
+Security Issues in Dynamic Code Loading
+Insecure Mobile Device Management (MDM)
+Insecure Near Field Communication (NFC) Usage
+Insecure Radio Frequency Identification (RFID) Implementation
+Insufficient Isolation of Components
+Insecure Geo-Location Services
+Lack of Binary Integrity Checks
+Insecure Machine Learning Models
+Insecure Augmented Reality (AR) Implementations
+Insecure Virtual Reality (VR) Implementations
+Insufficient Voice Command Security
+Insecure Digital Rights Management (DRM)
+Insecure Voice over IP (VoIP) Implementations
+Insufficient Protection of User Credentials in Memory
+Insecure Single Sign-On (SSO) Implementations
+Security Issues in Remote Procedure Call (RPC) Mechanisms
+Insecure Serialization and Deserialization
+Insecure Bluetooth Low Energy (BLE) Communication
+Lack of Binary Execution Protection
+Insecure use of Remote File Inclusion (RFI)
+Insecure Apple Push Notification Service (APNs) Configuration
+Insecure Google Cloud Messaging (GCM) Configuration
+Insufficient Security of In-App Purchases
+
+
+
+
+
+
+
+### for java:
+
+Injection Attacks
+Cross-Site Scripting (XSS)
+Cross-Site Request Forgery (CSRF)
+Security Misconfigurations
+SQL Injection
+Improper Input Validation
+Unvalidated Redirects and Forwards
+Insecure Direct Object References (IDOR)
+Broken Authentication and Session Management
+XML External Entity (XXE) Injection
+Insecure Deserialization
+Access Control Issues
+Buffer Overflow
+Clickjacking
+Code Injection
+Command Injection
+Unintended File and Directory Access
+Path Traversal
+Insecure Dependencies
+Time-of-Check to Time-of-Use (TOCTOU) Race Conditions
+Cryptographic Weaknesses
+Information Disclosure
+Server-Side Request Forgery (SSRF)
+Session Fixation
+Race Conditions
+Malicious File Upload
+Code Execution
+Business Logic Vulnerabilities
+Data Exposure
+Missing Function-Level Access Control
+Integer Overflow
+Security Bypass
+Cross-Site Scripting (XSS) in File Uploads
+HTTP Header Injection
+HTTP Response Splitting
+Man-in-the-Middle (MITM) Attacks
+Security Through Obscurity
+Credential Management Issues
+Insecure Randomness
+Mobile Code Execution
+Security Flaws in Third-Party Libraries
+UI Redressing (Clickjacking)
+WebSocket Security Issues
+LDAP Injection
+Insecure Cross-Origin Resource Sharing (CORS)
+Security Issues in Session Token Generation
+Unsafe Object Deserialization
+Insecure WebSocket Implementations
+Memory Leaks
+URL Redirection to Untrusted Sites
+Weak Password Storage
+Predictable Resource Location
+Time-Based Blind SQL Injection
+Security Issues in File Handling
+UI Security Issues
+Insufficient Entropy in Random Number Generation
+Lack of Multifactor Authentication
+Insufficient Security Logging and Monitoring
+Security Issues in Authentication Protocols
+Insecure Mobile Code Execution
+Weak SSL/TLS Protocols and Ciphers
+Insufficient Session Expiration
+Security Issues in Error Handling
+Click-to-Play Vulnerabilities
+Insecure Object References
+UI Input Validation Bypass
+Security Issues in WebSockets
+Side Channel Attacks
+Security Issues in Java Native Interface (JNI)
+Insufficient Transport Layer Protection
+Mobile App Data Storage Insecurity
+Business Logic Flaws in Authorization
+Security Issues in WebSockets
+Insecure Data Transmission
+Insecure Data Storage
+Privacy Violations
+Unprotected APIs
+Credential Stuffing
+Insecure Bluetooth Implementations
+Insufficient Session Isolation
+Unprotected URLs
+Insecure Interprocess Communication
+Security Issues in Asynchronous Programming
+Insufficient Code Obfuscation
+Security Issues in Java Remote Method Invocation (RMI)
+Insecure Data Validation
+Lack of Security Education and Awareness
+Security Issues in WebAssembly
+Insecure Dynamic Code Evaluation
+Issues with Content Security Policy (CSP)
+Insecure Serverless Implementations
+Security Issues in GraphQL Implementations
+Web Storage Vulnerabilities
+Insecure Docker Configurations
+Server-Side Template Injection (SSTI)
+Security Issues in OAuth Implementations
+Insecure Geo-Location Services
+Security Issues in Biometric Authentication
+Insecure DevOps Practices
+Lack of Security Headers
+Security Issues in WebAssembly
+DNS Spoofing and Cache Poisoning
+Insecure Voice over IP (VoIP) Implementations
+Security Issues in Content Delivery Networks (CDN)
+Insecure Chat Applications
+Security Issues in IoT Device Communication
+Insecure Remote Procedure Call (RPC)
+Security Issues in Android Intents
+Insecure BGP Implementations
+Issues with Certificate Validation
+Insecure Radio Frequency Identification (RFID)
+Security Issues in Digital Signatures
+Insecure Network Protocols
+Issues with Browser Same-Origin Policy
+Security Issues in Java Management Extensions (JMX)
+Insecure IoT Device Firmware
+Issues with WebAssembly Memory Safety
+Security Issues in Virtual Private Networks (VPNs)
+Insecure Smart Contracts (Blockchain)
+Issues with Secure Boot Process
