@@ -129,8 +129,30 @@ def clear_previous_clones():
 
 
 # Scanning
+@app.route('/scanrepo', methods=['GET'])
+def scanpyfile():
+    # !semgrep --config=auto railsgoat --output=output.json --json --verbose
+    inputfolder = "/content/SECUIRX-v2-Flask-API/static/github_folders"
+    outputfolder = "--output=output.json"
+    
+    subprocess.run(['!semgrep', '--config=auto', inputfolder, outputfolder, '--json', '--verbose'])
 
-# py files scan
+    # static\setup\semgrep_mode\output.json
+    json_file_path = os.path.join(app.config['SETUP_FOLDER'], 'semgrep_mode\output.json')
+
+    # Read the content from the JSON file
+    with open(json_file_path, 'r') as json_file:
+        json_data = json.load(json_file)
+
+    # Print the JSON data
+    jData = json.dumps(json_data, indent=2)
+    
+    print("scanned repo with semgrep successfully !!!")
+    # print(jData)
+    return jData
+
+
+# py, java, c++ files scan
 @app.route('/scanfiles', methods=['GET'])
 def scanpyfile():
 
@@ -233,7 +255,9 @@ def scanpyfile():
 
 
     print("scanned files successfully !!!")
-    return "scanned py files"
+    retData = f"Scanned files successfully !!! \n\n {logs_data}"
+    
+    return retData
 
 
 
