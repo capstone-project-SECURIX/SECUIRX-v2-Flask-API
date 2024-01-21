@@ -122,8 +122,9 @@ def clear_previous_clones():
     #     print(f"Error running batch file: {e}")
 
     # !rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*
-    subprocess.run(['!rm', '-r', '/content/SECUIRX-v2-Flask-API/static/github_folders/*'])
-
+    # subprocess.run(['!rm', '-r', '/content/SECUIRX-v2-Flask-API/static/github_folders/*'])
+    os.system('!rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*')
+    print("prev git repo deleted successfully !!!")
 
 
 
@@ -135,10 +136,13 @@ def scanrepo():
     inputfolder = "/content/SECUIRX-v2-Flask-API/static/github_folders"
     outputfolder = "--output=output.json"
     
-    subprocess.run(['!semgrep', '--config=auto', inputfolder, outputfolder, '--json', '--verbose'])
-
     # static\setup\semgrep_mode\output.json
     json_file_path = os.path.join(app.config['SETUP_FOLDER'], 'semgrep_mode\output.json')
+
+    # subprocess.run(['!semgrep', '--config=auto', inputfolder, outputfolder, '--json', '--verbose'])
+
+    os.system(f"!semgrep --config=auto {inputfolder} {json_file_path} --json --verbose")
+
 
     # Read the content from the JSON file
     with open(json_file_path, 'r') as json_file:
