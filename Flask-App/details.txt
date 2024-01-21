@@ -1,3 +1,10 @@
+!pip install flask-ngrok --upgrade
+!pip install pyngrok==5.0.2
+!pip install flask semgrep
+
+
+
+
 rules:
   - id: infoExposureComments
     pattern: 'regex pattern...'
