@@ -5,7 +5,7 @@ def uploadfile():
     print("uploadfile() function running ...")
 
     # url = "http://localhost:5000/upload_via_post"
-    url = "https://ff1a-35-237-55-56.ngrok-free.app/upload_via_post"
+    url = "https://6bf6-34-42-153-222.ngrok-free.app/upload_via_post"
 
     # file_path = "api_sample_uploads\codeGoat - Copy (2).c++"
     # file_path = "api_sample_uploads\codeGoat - Copy.java"
@@ -27,10 +27,10 @@ def uploadfile():
 def upload_GitLink():
     print("upload_GitLink() function running ...")
     # url = "http://localhost:5000/download_repo"
-    url = "https://ff1a-35-237-55-56.ngrok-free.app/download_repo"
+    url = "https://6bf6-34-42-153-222.ngrok-free.app/download_repo"
 
-    repo_link = "https://github.com/AtharvaPawar456/Raspberry-Pi-Workshop.git"
-    # repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"
+    # repo_link = "https://github.com/AtharvaPawar456/Raspberry-Pi-Workshop.git"
+    repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"
 
     # Make a GET request to download the repository
     params = {'repo_link': repo_link}

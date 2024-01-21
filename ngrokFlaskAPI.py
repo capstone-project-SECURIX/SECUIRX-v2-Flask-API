@@ -111,15 +111,20 @@ def clone_github_repo(repo_link):
         print(f"Error Cloneing Git Repo: {e}")
 
 def clear_previous_clones():
-    # Path to the batch file
-    batch_file_path = os.path.join('static', 'delete_directory.bat')
+    # # Path to the batch file
+    # batch_file_path = os.path.join('static', 'delete_directory.bat')
 
-    try:
-        # Run the batch file
-        subprocess.run([batch_file_path], shell=True, check=True)
-        print("Previous clones deleted successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error running batch file: {e}")
+    # try:
+    #     # Run the batch file
+    #     subprocess.run([batch_file_path], shell=True, check=True)
+    #     print("Previous clones deleted successfully.")
+    # except subprocess.CalledProcessError as e:
+    #     print(f"Error running batch file: {e}")
+
+    # !rm -r /content/SECUIRX-v2-Flask-API/static/github_folders/*
+    subprocess.run(['!rm', '-r', '/content/SECUIRX-v2-Flask-API/static/github_folders/*'])
+
+
 
 
 
