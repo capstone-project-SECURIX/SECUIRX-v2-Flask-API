@@ -130,7 +130,7 @@ def clear_previous_clones():
 
 # Scanning
 @app.route('/scanrepo', methods=['GET'])
-def scanpyfile():
+def scanrepo():
     # !semgrep --config=auto railsgoat --output=output.json --json --verbose
     inputfolder = "/content/SECUIRX-v2-Flask-API/static/github_folders"
     outputfolder = "--output=output.json"
@@ -155,7 +155,6 @@ def scanpyfile():
 # py, java, c++ files scan
 @app.route('/scanfiles', methods=['GET'])
 def scanpyfile():
-
 
 
     # List all files in the testcode folder
