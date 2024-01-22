@@ -1,0 +1,169 @@
+inputCode, correctCode, correctCode(0,1), predicatedCorrectCode, predicatedCorrectCode(0,1)
+flask wrong code sample, for input flask code actual correct code sample, 1, for corrected flask code sample, 1
+python error handling example, try:\n    # code with potential error\nexcept Exception as e:\n    # handle the error, try:\n    # corrected code without error\nexcept Exception as e:\n    # handle the error, 1, try:\n    # corrected code without error\nexcept Exception as e:\n    # handle the error, 1
+machine learning model training, from sklearn.model_selection import train_test_split\n# code for splitting data\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42), 1, from sklearn.model_selection import train_test_split\n# corrected code for splitting data\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42), 1
+web scraping with BeautifulSoup, # code for web scraping with incorrect import\nfrom bs4 import BeautifulSoup\n# rest of the scraping code, 0, # code for web scraping with correct import\nfrom bs4 import BeautifulSoup\n# rest of the scraping code, 1
+data visualization with matplotlib, # code with incorrect import\nimport matplotlip.pyplot as plt\n# rest of the code for data visualization\nplt.show(), 0, # code with correct import\nimport matplotlib.pyplot as plt\n# rest of the code for data visualization\nplt.show(), 1
+linear regression implementation, from sklearn.linear_model import LinerRegression\n# code with typo in import\nmodel = LinerRegression()\n# rest of the code, 0, from sklearn.linear_model import LinearRegression\n# corrected code\nmodel = LinearRegression()\n# rest of the code, 1
+RESTful API with Django, # code with missing import\nfrom django.views import APIView\n# rest of the code for API view, 0, # code with correct import\nfrom rest_framework.views import APIView\n# rest of the code for API view, 1
+image classification with TensorFlow, # code with incorrect model creation\nmodel = tf.Keras.Sequential()\n# rest of the code for image classification, 0, # code with correct model creation\nmodel = tf.keras.Sequential()\n# rest of the code for image classification, 1
+natural language processing with NLTK, # code with incorrect import\nimport ntlk\n# rest of the code for NLP\nnltk.download('punkt'), 0, # code with correct import\nimport nltk\n# rest of the code for NLP\nnltk.download('punkt'), 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Vulnerability in python  Code
+- Cross-Site Scripting (XSS)
+wrong code:
+return "<h1>" + user_input + "</h1>"
+
+give correct code only no description for it is needed
+
+
+
+
+
+ (which starts and ends with '###')
+
+
+
+
+
+
+'titles': [
+        'SQL Injection',
+        'SQL Injection',
+        'SQL Injection',
+        'SQL Injection',
+        'SQL Injection',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+        'Cross-Site Scripting (XSS)',
+    ],
+    
+    'wrongCode': [
+        '''query = "SELECT * FROM users WHERE username = '" + user_input + "';" ''',
+        '''query = "SELECT * FROM users WHERE id = %s" % user_input''',
+        '''query = "SELECT * FROM users WHERE name = '{}'".format(user_input)''',
+        '''query = f"SELECT * FROM users WHERE email = '{user_email}'" ''',
+        '''query = "SELECT * FROM users WHERE id = '" + request.args.get("id") + "';" ''',
+
+        '''html_content = "<div>" + user_input + "</div>" ''',
+        '''user_input = request.form['input_field']\nreturn render_template('page.html', content=user_input)''',
+        '''response = make_response("<script>alert('Hello, " + user_name + "!');</script>")''',
+        '''error_message = "Error: " + user_input''',
+        '''output = "Welcome, " + user_name + "!" '''
+        
+        
+        '''print("Error: " + request.args.get('error_message'))'''
+        '''document.getElementById('output').innerHTML = user_input;'''
+        '''input_field.value = user_input; '''
+        '''content = f"<p>{user_input}</p>" '''
+        '''flash("Success! " + user_input, 'success')'''
+        
+        '''user_input = request.cookies.get('user_input')'''
+        '''print("<h1>" + user_input + "</h1>")'''
+        '''message = f"Hello, {user_name}!" '''
+        '''data = {'message': user_input}'''
+        '''return "<h1>" + user_input + "</h1>" '''
+    ],
+
+    'correctCode': [
+
+        '''query = \"SELECT * FROM users WHERE username = %s;\"\ncursor.execute(query, (user_input,))''',
+        '''query = \"SELECT * FROM users WHERE id = %s;\"\ncursor.execute(query, (user_input,))''',
+        '''query = \"SELECT * FROM users WHERE name = %s;\"\ncursor.execute(query, (user_input,))''',
+        '''query = \"SELECT * FROM users WHERE email = %s;\"\ncursor.execute(query, (user_email,))''',
+        '''query = \"SELECT * FROM users WHERE id = %s;\"\ncursor.execute(query, (request.args.get(\"id\"),))''',
+
+
+        '''html_content = Markup.escape(user_input) ''',
+        '''user_input = escape(request.form['input_field'])\nreturn render_template('page.html', content=user_input) ''',
+        '''response = make_response(Markup.escape(\"<script>alert('Hello, \" + user_name + \"!');</script>\")) ''',
+        '''error_message = \"Error: \" + Markup.escape(user_input) ''',
+        '''output = \"Welcome, \" + Markup.escape(user_name) + \"!\" ''',
+        '''print(\"Error: \" + Markup.escape(request.args.get('error_message'))) ''',
+        '''document.getElementById('output').textContent = user_input; ''', 
+        '''input_field.value = encodeURIComponent(user_input); ''',
+        '''content = f\"<p>{Markup.escape(user_input)}</p>\" ''',
+        '''flash(\"Success! \" + Markup.escape(user_input), 'success') ''',
+        '''user_input = Markup.escape(request.cookies.get('user_input')) ''',
+        '''print(\"<h1>\" + Markup.escape(user_input) + \"</h1>\") ''',
+        '''message = f\"Hello, {Markup.escape(user_name)}!\" ''',
+        '''data = {'message': Markup.escape(user_input)} ''',
+        '''return \"<h1>\" + Markup.escape(user_input) + \"</h1>\" ''',
+
+
+    ],
+
+
+    'llama_2correctCode': [
+        '''import sqlite3\napp = Flask(name)\ndb = sqlite3.connect(app.config['DATABASE'])\n@app.route('/search')\ndef search():\nuser_input = request.args.get('user_input')\nquery = "SELECT * FROM users WHERE username = ?;"\nparams = (user_input,)\nresult = db.curlor executing Query(query, params)\nrows = result.fetchall()\nreturn jsonify([dict(row) for row in rows])''',
+        '''import sqlite3\napp = Flask(name)\nDB = sqlite3.connect(app.config['DATABASE'])\n@app.route('/search')\ndef search():\nuser_input = request.args.get('user_input')\nquery = "SELECT * FROM users WHERE id = ?;"\nresult = DB.cursor().execute(query, (user_input,))\nrows = result.fetchall()\nreturn jsonify([dict(row) for row in rows])''',
+        '''import sqlite3\napp = Flask(name)\nDB = sqlite3.connect(app.config['DATABASE'])\n@app.route('/search')\ndef search():\nuser_input = request.args.get('user_input')\nquery = "SELECT * FROM users WHERE name = ?;"\nresult = DB.cursor().execute(query, (user_input,))\nrows = result.fetchall()\nreturn jsonify([dict(row) for row in rows])''',
+        '''import sqlite3\napp = Flask(name)\nDB = sqlite3.connect(app.config['DATABASE'])\n@app.route('/search')\ndef search():\nuser_input = request.form.get('user_email')\nquery = "SELECT * FROM users WHERE email = ?;"\nresult = DB.cursor().execute(query, (user_input,))\nrows = result.fetchall()\nreturn jsonify([dict(row) for row in rows])''',
+        '''import sqlite3 app=Flask(name) DB=sqlite3.connect(app.config[‘DATABASE’]) @app.route('/search') def search(): user_input=request.form.get('id') query="SELECT * FROM users WHERE id =?;" result=DB.cursor().execute(query,(user_input,)) rows=result.fetchall() return jsonify([dict(row) for row in rows])''',
+        '''Hello, World! <script>alert('XSS')</script>''',
+        '''import bleach\nuser_input = request.form['input_field']\nsanitized_input = bleach.clean(user_input, strip=True, tags=[], filters={})\nreturn render_template('page.html', content=sanitized_input)''',
+        '''response = make_response(bleach.clean("<script>aler ('Hello, " + user_name + "!');</scipt>",strip=True, tags=[], filters={]))''',
+        '''error_message = f"Error: {user_input}" ''',
+        '''output = "Welcome, " + html.escape(user_name) + "!"''',
+        '''print("Error: ".html.escape(request.args.get('error_message']))''',
+        '''elt = document.getElementById('output')\nelt.innerText =html.encode(user_input, substitutions=True)''',
+        '''input_field.value = HTML.escape(user_input);''',
+        '''content = f"<p]{HTML. escape(user_input))}"></p>" ''',
+        '''flash("Success! ", 'success') + HTML.escape(user_input)''',
+        '''user_input = request.cookies.get('user_input', '') ''',
+        ''' print '<h1>' + HTML.escape(user_input) + '</h1>' ''',
+        '''message = f"Hello, {HTML.escape(user_name)}!" ''',
+        '''data = {'message': HTML.escape(user_input)}''',
+        '''return "<h1>" + HTML.escape(user_input) + "</h1>" ''',
+
+
+
+
+
+    ]
+
+llama2 response:
+
+
+
+
+
+actual = [1, 1,   1,   1,   1,  1, 1, 1, 1, 1]
+pred = [1, 1,   1,   1,   0,   0,   1,   0,   0,   0,  ]
+
+
+
+
+

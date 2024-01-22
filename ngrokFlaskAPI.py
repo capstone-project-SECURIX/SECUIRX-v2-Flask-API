@@ -39,7 +39,7 @@ def file_scan():
     clear_upload_folder()
 
     # Get the file content and other information from the POST request
-    scan_mode = request.files.get('mode')
+    scan_mode = request.form.get('mode')
 
     file_content = request.files.get('file_content')
     file_name = request.form.get('file_name')
@@ -154,7 +154,7 @@ def file_scan():
         print("semgrep - json_file_path : ", json_file_path)
 
         # !semgrep --config=auto static/github_folders --output=static/setup/semgrep_mode/output.json --json --verbose
-        os.system(f"!semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
+        os.system(f"semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
 
         # Read the content from the JSON file
         with open(json_file_path, 'r') as json_file:
