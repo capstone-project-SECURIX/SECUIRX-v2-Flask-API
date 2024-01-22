@@ -1,7 +1,7 @@
 import os
 import requests
 
-domain_link = "https://cb84-35-229-130-116.ngrok-free.app/"
+domain_link = "https://1522-35-229-130-116.ngrok-free.app/"
 
 
 def uploadfile():
@@ -81,8 +81,8 @@ def scan_file_final():
     # url = f"{domain_link}scanrepo"
     url = f"{domain_link}file_scan"
 
-    mode = 'regex'
-    # mode = 'semgrep'
+    # mode = 'regex'
+    mode = 'semgrep'
 
     file_path = "api_sample_uploads\codeGoat - Copy (2).c++"
     # file_path = "api_sample_uploads\codeGoat - Copy.java"

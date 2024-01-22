@@ -145,8 +145,8 @@ def file_scan():
             json.dump(logs_data, logs_json_file, indent=2)
 
         print("Results saved in logs.json") if logs_data else print("No patterns matched.")
-        retData = f"Scanned files successfully !!! \n\n {logs_data}"        
-        return retData
+        # retData = f"Scanned files successfully !!! \n\n {logs_data}"        
+        return logs_data
 
     else:
         inputfolder = "static/uploads_files"

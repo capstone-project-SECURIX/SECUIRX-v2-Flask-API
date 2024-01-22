@@ -1,1 +1,13 @@
-[]
+{
+  "errors": [],
+  "interfile_languages_used": [],
+  "paths": {
+    "scanned": [
+      "static/uploads_files/codeGoat - Copy (2).c++"
+    ],
+    "skipped": []
+  },
+  "results": [],
+  "skipped_rules": [],
+  "version": "1.57.0"
+}
