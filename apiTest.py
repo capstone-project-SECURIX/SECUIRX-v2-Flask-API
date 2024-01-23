@@ -1,7 +1,7 @@
 import os
 import requests
 
-domain_link = "https://1522-35-229-130-116.ngrok-free.app/"
+domain_link = "https://045d-35-229-130-116.ngrok-free.app/"
 
 
 def uploadfile():
