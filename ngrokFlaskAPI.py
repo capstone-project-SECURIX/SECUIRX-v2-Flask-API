@@ -1,5 +1,10 @@
 from flask import Flask, render_template, request, send_file
-from flask_ngrok import run_with_ngrok
+# from flask_ngrok import run_with_ngrok
+
+
+import getpass
+import os
+from pyngrok import ngrok, conf
 
 import os
 import requests
@@ -14,8 +19,15 @@ import json
 
 
 app = Flask(__name__)
-run_with_ngrok(app)  # Start ngrok when the app is run
+# run_with_ngrok(app)  # Start ngrok when the app is run
 
+
+# Open a ngrok tunnel to the HTTP server
+public_url = ngrok.connect(5000).public_url
+print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}/\"".format(public_url, 5000))
+
+# Update any base URLs to use the public ngrok URL
+app.config["BASE_URL"] = public_url
 
 # Set the upload folder
 app.config['UPLOAD_FOLDER'] = 'static/uploads_files'
@@ -25,6 +37,19 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(app.config['GITHUB_FOLDER'], exist_ok=True)
 os.makedirs(app.config['SETUP_FOLDER'],  exist_ok=True)
 
+'''
+@app.route("/")
+def index():
+    return "Hello from Colab!"
+
+@app.route("/greet/<username>")
+def greet_user(username):
+    print(f"Hello, {username}!")
+    return f"Hello, {username}!"
+
+# Start the Flask server without threading
+app.run(port=5000, use_reloader=False)
+'''
 
 # main code ------------------------------------------
 
@@ -482,4 +507,5 @@ def scanpyfile():
 
 if __name__ == '__main__':
     # app.run(debug=True)
-    app.run()
+    # app.run()
+    app.run(port=5000, use_reloader=False)

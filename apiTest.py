@@ -72,8 +72,6 @@ def scan_file():
 
 
 
-
-
 # def scan_file(mode='regex'):
 def scan_file_final():
     print("upload_GitLink() function running ...")
