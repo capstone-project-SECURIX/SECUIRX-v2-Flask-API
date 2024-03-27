@@ -240,8 +240,26 @@ def repo_scan():
         json_file_path = "static/setup/semgrep_mode/output.json"
         print("semgrep - json_file_path : ", json_file_path)
 
+        # # Check if the input folder exists
+        # if os.path.exists(inputfolder) and os.path.isdir(inputfolder):
+        #     # List folders within the input folder
+        #     # folder_names = [folder for folder in os.listdir(inputfolder) if os.path.isdir(os.path.join(inputfolder, folder))]
+            
+        #     # Check if there's only one folder
+        #     if len(folder_names) == 1:
+        #         print("The only folder within", inputfolder, "is:", folder_names[0])
+        #     else:
+        #         print("There is more than one folder within", inputfolder)
+        # else:
+        #     print("The input folder does not exist or is not a directory.")
+
+        folder_names = [folder for folder in os.listdir(inputfolder) if os.path.isdir(os.path.join(inputfolder, folder))]
+
+        inputfolder = "static/github_folders/" + folder_names[0]
+
+
         # !semgrep --config=auto static/github_folders --output=static/setup/semgrep_mode/output.json --json --verbose
-        os.system(f"!semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
+        os.system(f"semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
 
         # Read the content from the JSON file
         with open(json_file_path, 'r') as json_file:
@@ -351,7 +369,11 @@ def download_repo(repo_link):
 def clone_github_repo(repo_link):
     # Assuming the repo link is in the format "https://github.com/username/repo"
     repo_url = repo_link
-    clone_path = os.path.join('static', 'github_folders', repo_link[19:].replace('/', '_'))
+    Repo_Folder_Name = repo_link[19:].replace('/', '_')
+    Repo_Folder_Name = Repo_Folder_Name.replace('.git', '')
+    print("Repo Folder Name", Repo_Folder_Name)
+
+    clone_path = os.path.join('static', 'github_folders', Repo_Folder_Name)
 
     # Delete all previous clones
     clear_previous_clones()
@@ -385,13 +407,19 @@ def scanrepo():
     # !semgrep --config=auto railsgoat --output=output.json --json --verbose
     inputfolder = "static/github_folders"
     json_file_path = "static/setup/semgrep_mode/output.json"
+
+    
+    folder_names = [folder for folder in os.listdir(inputfolder) if os.path.isdir(os.path.join(inputfolder, folder))]
+
+    inputfolder = "static/github_folders/" + folder_names[0]
     
     # json_file_path = os.path.join(app.config['SETUP_FOLDER'], 'semgrep_mode', 'output.json')
     print("semgrep - json_file_path : ", json_file_path)
+    print("semgrep - json_file_path : ", inputfolder)
 
     # !semgrep --config=auto static/github_folders/AtharvaPawar456_yerunkar-corner.git --output=static/setup/semgrep_mode/output.json --json --verbose
 
-    os.system(f"!semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
+    os.system(f"semgrep --config=auto {inputfolder} --output={json_file_path} --json --verbose")
 
     # Read the content from the JSON file
     with open(json_file_path, 'r') as json_file:

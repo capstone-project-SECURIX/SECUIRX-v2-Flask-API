@@ -1,7 +1,7 @@
 import os
 import requests
 
-domain_link = "https://df72-34-73-114-196.ngrok-free.app/"
+domain_link = "https://aacb-34-73-114-196.ngrok-free.app/"
 
 
 def uploadfile():
@@ -53,12 +53,12 @@ def scan_file():
 
 
 
-def scan_Github_Link(repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"):
+def scan_Github_Link():
     print("upload_GitLink() function running ...")
     # url = "http://localhost:5000/download_repo"
     url = f"{domain_link}scanrepo"
 
-    # repo_link = "https://github.com/AtharvaPawar456/Raspberry-Pi-Workshop.git"
+    repo_link = "https://github.com/AtharvaPawar456/Raspberry-Pi-Workshop.git"
     # repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"
 
     # Make a GET request to download the repository
@@ -126,4 +126,6 @@ def scan_file_final():
 
 # uploadfile()
 # upload_GitLink()
-scan_file_final()
+# scan_file_final()
+        
+scan_Github_Link()
