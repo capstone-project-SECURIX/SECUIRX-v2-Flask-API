@@ -1,7 +1,7 @@
 import os
 import requests
 
-domain_link = "https://045d-35-229-130-116.ngrok-free.app/"
+domain_link = "https://df72-34-73-114-196.ngrok-free.app/"
 
 
 def uploadfile():
@@ -27,21 +27,6 @@ def uploadfile():
     # Print the response
     print(response.text)
 
-def upload_GitLink():
-    print("upload_GitLink() function running ...")
-    # url = "http://localhost:5000/download_repo"
-    url = f"{domain_link}download_repo"
-
-    # repo_link = "https://github.com/AtharvaPawar456/Raspberry-Pi-Workshop.git"
-    repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"
-
-    # Make a GET request to download the repository
-    params = {'repo_link': repo_link}
-    response = requests.get(url, params=params)
-
-    # Print the response
-    print(response.text)
-
 # def scan_file(mode='regex'):
 def scan_file():
     print("upload_GitLink() function running ...")
@@ -59,7 +44,33 @@ def scan_file():
     print(response.text[:500])    
     
     # You can also save the response to a file for further analysis
-    with open('research/response_content.txt', 'w') as file:
+    with open('research/response_content.json', 'w') as file:
+        file.write(response.text)
+
+
+
+
+
+
+
+def scan_Github_Link(repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"):
+    print("upload_GitLink() function running ...")
+    # url = "http://localhost:5000/download_repo"
+    url = f"{domain_link}scanrepo"
+
+    # repo_link = "https://github.com/AtharvaPawar456/Raspberry-Pi-Workshop.git"
+    # repo_link = "https://github.com/AtharvaPawar456/yerunkar-corner.git"
+
+    # Make a GET request to download the repository
+    params = {'repo_link': repo_link}
+    response = requests.get(url, params=params)
+
+    # Print the response
+    # print(response.text)
+    print("Sample response",response.text[:50])    
+    
+    # You can also save the response to a file for further analysis
+    with open('research/response_content.json', 'w') as file:
         file.write(response.text)
 
 
@@ -105,10 +116,10 @@ def scan_file_final():
     # response = requests.get(url)
 
     # Print the first 500 characters of the response
-    print(response.text[:500])    
+    print("Sample response",response.text[:50])    
     
     # You can also save the response to a file for further analysis
-    with open('research/response_content.txt', 'w') as file:
+    with open('research/response_content.json', 'w') as file:
         file.write(response.text)
 
 

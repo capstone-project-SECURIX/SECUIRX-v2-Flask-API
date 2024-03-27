@@ -336,9 +336,9 @@ def upload_file_via_post():
 
 
 
-@app.route('/download_repo', methods=['GET'])
-def download_repo():
-    repo_link = request.args.get('repo_link')
+# @app.route('/download_repo', methods=['GET'])
+def download_repo(repo_link):
+    # repo_link = request.args.get('repo_link')
 
     if not repo_link:
         return "Repo link not provided"
@@ -379,6 +379,9 @@ def clear_previous_clones():
 # Scanning
 @app.route('/scanrepo', methods=['GET'])
 def scanrepo():
+    repo_link = request.args.get('repo_link')
+    download_repo(repo_link)
+
     # !semgrep --config=auto railsgoat --output=output.json --json --verbose
     inputfolder = "static/github_folders"
     json_file_path = "static/setup/semgrep_mode/output.json"

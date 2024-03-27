@@ -1,0 +1,1194 @@
+{
+  "errors": [],
+  "interfile_languages_used": [],
+  "paths": {
+    "scanned": [
+      "static/uploads_files/codeGoat - Copy (2).c++"
+    ],
+    "skipped": []
+  },
+  "results": [
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 45,
+        "offset": 997
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "9c930f27002c824912362c76c8bb20d9ead4bd533d78a72087b1014740baa3f50cc235e17b6b7d7d56327b0a1b9855d7b524bc9b4ae16f01b7aa59954c709551_0",
+        "is_ignored": false,
+        "lines": "gets(buffer);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `buffer`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "buffer",
+            "end": {
+              "col": 12,
+              "line": 45,
+              "offset": 1004
+            },
+            "start": {
+              "col": 6,
+              "line": 45,
+              "offset": 998
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 45,
+              "offset": 997
+            },
+            "start": {
+              "col": 1,
+              "line": 45,
+              "offset": 993
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "100",
+            "end": {
+              "col": 16,
+              "line": 44,
+              "offset": 990
+            },
+            "start": {
+              "col": 13,
+              "line": 44,
+              "offset": 987
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 44,
+              "offset": 979
+            },
+            "start": {
+              "col": 1,
+              "line": 44,
+              "offset": 975
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 45,
+        "offset": 993
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 48,
+        "offset": 1029
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "246e6153d78ebe7b84f3c275b8bb898cc7171c7862c32fd3c97ef2d2bcecdc47111b83abbb14ac3b1ac6670d4e7ce380fffaec1b3b21fd5b51f82cfde4868e57_0",
+        "is_ignored": false,
+        "lines": "gets(input);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `input`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "input",
+            "end": {
+              "col": 11,
+              "line": 48,
+              "offset": 1035
+            },
+            "start": {
+              "col": 6,
+              "line": 48,
+              "offset": 1030
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 48,
+              "offset": 1029
+            },
+            "start": {
+              "col": 1,
+              "line": 48,
+              "offset": 1025
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "256",
+            "end": {
+              "col": 15,
+              "line": 47,
+              "offset": 1022
+            },
+            "start": {
+              "col": 12,
+              "line": 47,
+              "offset": 1019
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 47,
+              "offset": 1012
+            },
+            "start": {
+              "col": 1,
+              "line": 47,
+              "offset": 1008
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 48,
+        "offset": 1025
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 51,
+        "offset": 1058
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "5c9ce2fdfa5bfcb2bcd5c2c5ac5a1f7afcedf6fc6028b0e69b314166d2dd5b250d0aaa332b8b84027524c10f131749e7c8c9a4b02e51507023ee83ef319b1c47_0",
+        "is_ignored": false,
+        "lines": "gets(data);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `data`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "data",
+            "end": {
+              "col": 10,
+              "line": 51,
+              "offset": 1063
+            },
+            "start": {
+              "col": 6,
+              "line": 51,
+              "offset": 1059
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 51,
+              "offset": 1058
+            },
+            "start": {
+              "col": 1,
+              "line": 51,
+              "offset": 1054
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "50",
+            "end": {
+              "col": 13,
+              "line": 50,
+              "offset": 1051
+            },
+            "start": {
+              "col": 11,
+              "line": 50,
+              "offset": 1049
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 50,
+              "offset": 1043
+            },
+            "start": {
+              "col": 1,
+              "line": 50,
+              "offset": 1039
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 51,
+        "offset": 1054
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 54,
+        "offset": 1092
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "de6acfe999955e7f8bbd41ba824b0ac100201f185f2721c1c4da35453389fcb0afe5c0e44f6aa86ed54ffd56ca6b0d0ca77cab9445a7c06bb8e12a5b49d9c04e_0",
+        "is_ignored": false,
+        "lines": "gets(userInput);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `userInput`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "userInput",
+            "end": {
+              "col": 15,
+              "line": 54,
+              "offset": 1102
+            },
+            "start": {
+              "col": 6,
+              "line": 54,
+              "offset": 1093
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 54,
+              "offset": 1092
+            },
+            "start": {
+              "col": 1,
+              "line": 54,
+              "offset": 1088
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "200",
+            "end": {
+              "col": 19,
+              "line": 53,
+              "offset": 1085
+            },
+            "start": {
+              "col": 16,
+              "line": 53,
+              "offset": 1082
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 53,
+              "offset": 1071
+            },
+            "start": {
+              "col": 1,
+              "line": 53,
+              "offset": 1067
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 54,
+        "offset": 1088
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 57,
+        "offset": 1125
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "5ed19e52d9786ebe3edd4ad469b8dfe8934febbeec0f449f539c239b5a2faae99ab7da418ebf9a2dae2530b9938fd65c01682dab8bd005b7703b185ebb59ded8_0",
+        "is_ignored": false,
+        "lines": "gets(text);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `text`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "text",
+            "end": {
+              "col": 10,
+              "line": 57,
+              "offset": 1130
+            },
+            "start": {
+              "col": 6,
+              "line": 57,
+              "offset": 1126
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 57,
+              "offset": 1125
+            },
+            "start": {
+              "col": 1,
+              "line": 57,
+              "offset": 1121
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "30",
+            "end": {
+              "col": 13,
+              "line": 56,
+              "offset": 1118
+            },
+            "start": {
+              "col": 11,
+              "line": 56,
+              "offset": 1116
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 56,
+              "offset": 1110
+            },
+            "start": {
+              "col": 1,
+              "line": 56,
+              "offset": 1106
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 57,
+        "offset": 1121
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 60,
+        "offset": 1161
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "62b702e7ed857a9445e06f984b24a43e4f59a61fe2706837ed0b9dcee062f30069aca5f101032f134b6753b1ce4e438c44f2118645e21824715974e48b860943_0",
+        "is_ignored": false,
+        "lines": "gets(inputString);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `inputString`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "inputString",
+            "end": {
+              "col": 17,
+              "line": 60,
+              "offset": 1173
+            },
+            "start": {
+              "col": 6,
+              "line": 60,
+              "offset": 1162
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 60,
+              "offset": 1161
+            },
+            "start": {
+              "col": 1,
+              "line": 60,
+              "offset": 1157
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "100",
+            "end": {
+              "col": 21,
+              "line": 59,
+              "offset": 1154
+            },
+            "start": {
+              "col": 18,
+              "line": 59,
+              "offset": 1151
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 59,
+              "offset": 1138
+            },
+            "start": {
+              "col": 1,
+              "line": 59,
+              "offset": 1134
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 60,
+        "offset": 1157
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 63,
+        "offset": 1204
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "355d0b7b86ab60259d591c81d2e1d01e87168918589f06b14ac84023d40a0f749cdd0c374a24f077e3ad3cc345a937747b8f93201b76d212020e6bd811be8bcf_0",
+        "is_ignored": false,
+        "lines": "gets(outputBuffer);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `outputBuffer`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "outputBuffer",
+            "end": {
+              "col": 18,
+              "line": 63,
+              "offset": 1217
+            },
+            "start": {
+              "col": 6,
+              "line": 63,
+              "offset": 1205
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 63,
+              "offset": 1204
+            },
+            "start": {
+              "col": 1,
+              "line": 63,
+              "offset": 1200
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "80",
+            "end": {
+              "col": 21,
+              "line": 62,
+              "offset": 1197
+            },
+            "start": {
+              "col": 19,
+              "line": 62,
+              "offset": 1195
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 62,
+              "offset": 1181
+            },
+            "start": {
+              "col": 1,
+              "line": 62,
+              "offset": 1177
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 63,
+        "offset": 1200
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 66,
+        "offset": 1248
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "bd20f63f417acd9271f947f6d8c71309fde06bd9658c8fb4fc93a8de09fabacaabc31da6ad864206a6824e39671bcfcaff78e53a46da4ed97dc65fcbdc52703f_0",
+        "is_ignored": false,
+        "lines": "gets(inputBuffer);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `inputBuffer`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "inputBuffer",
+            "end": {
+              "col": 17,
+              "line": 66,
+              "offset": 1260
+            },
+            "start": {
+              "col": 6,
+              "line": 66,
+              "offset": 1249
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 66,
+              "offset": 1248
+            },
+            "start": {
+              "col": 1,
+              "line": 66,
+              "offset": 1244
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "150",
+            "end": {
+              "col": 21,
+              "line": 65,
+              "offset": 1241
+            },
+            "start": {
+              "col": 18,
+              "line": 65,
+              "offset": 1238
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 65,
+              "offset": 1225
+            },
+            "start": {
+              "col": 1,
+              "line": 65,
+              "offset": 1221
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 66,
+        "offset": 1244
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 69,
+        "offset": 1288
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "a24e8068c66cd95951b22999806a79157e4aaaac01455e3a05b4abbb5eab95c098e8ad22cfa031946ac5db65dd5663fc141f54ab206c6637182becdc1902bd62_0",
+        "is_ignored": false,
+        "lines": "gets(userText);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `userText`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "userText",
+            "end": {
+              "col": 14,
+              "line": 69,
+              "offset": 1297
+            },
+            "start": {
+              "col": 6,
+              "line": 69,
+              "offset": 1289
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 69,
+              "offset": 1288
+            },
+            "start": {
+              "col": 1,
+              "line": 69,
+              "offset": 1284
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "120",
+            "end": {
+              "col": 18,
+              "line": 68,
+              "offset": 1281
+            },
+            "start": {
+              "col": 15,
+              "line": 68,
+              "offset": 1278
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 68,
+              "offset": 1268
+            },
+            "start": {
+              "col": 1,
+              "line": 68,
+              "offset": 1264
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 69,
+        "offset": 1284
+      }
+    },
+    {
+      "check_id": "cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+      "end": {
+        "col": 5,
+        "line": 72,
+        "offset": 1327
+      },
+      "extra": {
+        "engine_kind": "OSS",
+        "fingerprint": "622b21a15a46ca5af0a142a6f06d82fa3fb34d57e730547be71894790c0ac4758406aee8e8ee5e88e715634c50477d64e5f29dbbb1ab7264f1839c6303ff0d0e_0",
+        "is_ignored": false,
+        "lines": "gets(inputArray);",
+        "message": "The function `gets` does not impose any size limitation to what it writes to `inputArray`. That may lead to a stack buffer overflow if there is no validation on the size of the input.",
+        "metadata": {
+          "category": "security",
+          "cert": [
+            "C",
+            "C++",
+            "L1",
+            "STR31-C"
+          ],
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')"
+          ],
+          "functional-categories": [
+            "memory::sink::buffer-overflow"
+          ],
+          "impact": "HIGH",
+          "license": "Copyright 2023 Semgrep, Inc.",
+          "likelihood": "LOW",
+          "references": [
+            "https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator"
+          ],
+          "semgrep.dev": {
+            "rule": {
+              "origin": "pro_rules",
+              "rule_id": "qNU2OOW",
+              "url": "https://semgrep.dev/playground/r/44TA15z/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+              "version_id": "44TA15z"
+            }
+          },
+          "shortlink": "https://sg.run/GdYYy",
+          "source": "https://semgrep.dev/r/cpp.lang.security.strings.unbounded-copy-to-stack-buffer.unbounded-copy-to-stack-buffer",
+          "subcategory": [
+            "vuln"
+          ],
+          "technology": [
+            "cpp"
+          ],
+          "vulnerability_class": [
+            "Other"
+          ]
+        },
+        "metavars": {
+          "$BUF": {
+            "abstract_content": "inputArray",
+            "end": {
+              "col": 16,
+              "line": 72,
+              "offset": 1338
+            },
+            "start": {
+              "col": 6,
+              "line": 72,
+              "offset": 1328
+            }
+          },
+          "$FUN": {
+            "abstract_content": "gets",
+            "end": {
+              "col": 5,
+              "line": 72,
+              "offset": 1327
+            },
+            "start": {
+              "col": 1,
+              "line": 72,
+              "offset": 1323
+            }
+          },
+          "$SIZE": {
+            "abstract_content": "200",
+            "end": {
+              "col": 20,
+              "line": 71,
+              "offset": 1320
+            },
+            "start": {
+              "col": 17,
+              "line": 71,
+              "offset": 1317
+            }
+          },
+          "$TY": {
+            "abstract_content": "char",
+            "end": {
+              "col": 5,
+              "line": 71,
+              "offset": 1305
+            },
+            "start": {
+              "col": 1,
+              "line": 71,
+              "offset": 1301
+            }
+          }
+        },
+        "severity": "WARNING",
+        "validation_state": "NO_VALIDATOR"
+      },
+      "path": "static/uploads_files/codeGoat - Copy (2).c++",
+      "start": {
+        "col": 1,
+        "line": 72,
+        "offset": 1323
+      }
+    }
+  ],
+  "skipped_rules": [],
+  "version": "1.66.2"
+}
