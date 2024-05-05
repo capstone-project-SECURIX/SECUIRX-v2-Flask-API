@@ -2,6 +2,8 @@ import os
 import requests
 
 domain_link = "https://aacb-34-73-114-196.ngrok-free.app/"
+# domain_link = "https://aacb-34-73-114-196.ngrok-free.app/"
+# domain_link = "https://aacb-34-73-114-196.ngrok-free.app/"
 
 
 def uploadfile():
